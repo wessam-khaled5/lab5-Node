@@ -4,12 +4,17 @@ import userRouter from "./Routes/user.routes.js";
 import postRouter from "./Routes/post.routes.js";
 import { globalError } from "./Middleware/errorHandler.js";
 
+import commentRouter from "./Routes/comment.routes.js";
+
+
+
 const app = express();
 app.use(express.json());
 
 dbConnection();
 
 app.use("/users", userRouter);
+app.use("/comments", commentRouter);
 app.use("/posts", postRouter);
 
 app.use(globalError);
